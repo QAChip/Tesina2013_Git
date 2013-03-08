@@ -1,0 +1,9 @@
+*.tex
+*.log
+*.dvi
+*.bbl
+*.aux
+*.ps
+*.pdf
+*.eps
+*~
