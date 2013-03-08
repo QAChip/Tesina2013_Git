@@ -1,0 +1,3 @@
+En la industria alimenticia como en la farmacéutica, durante el desarrollo de un nuevo producto así como para la reformulación de uno existente, se parte de una composición inicial (existente o teórica) de los componentes de una formulación conformada por una mezcla de ingredientes, aditivos, coadyuvantes y demás. Frecuentemente, dichos componentes están sujetos a restricciones en las proporciones permitidas para uno o varios componentes, las cuales son establecidas ya sea por la normatividad vigente (normas) o por sus límites de aplicación o toxicológicos.\\
+
+Además de la composición de la formulación, con frecuencia es necesario estudiar el efecto de las múltiples variables de proceso sobre la(s) variable(s) respuesta de interés. 

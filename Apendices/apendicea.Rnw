@@ -1,0 +1,63 @@
+\chapter{Apéndice A}
+
+\section{Análisis de varianza}
+
+\begin{table}[htp] %Analisis de varianza
+\begin{tabular}{lccc}
+\hline 
+Fuente de variación & Grados de libertad & Suma de cuadrados & Cuadrado medio \\ 
+\hline 
+Regresión (modelo ajustado) & $p-1$ & SSR$=\sum\limits^N_{u=1}(\hat{y}_u-\bar{y})^2$ & SSR$/(p-1)$ \\  
+Residual & $N-p$ & SSE$=\sum\limits^N_{u=1}(y_u-\hat{y}_u)^2$ & SSE$/(N-p)$ \\  
+Total & $N-1$ & SST$=\sum\limits^N_{u=1}(y_u-\bar{y})^2$ &  \\ 
+\hline
+\end{tabular} 
+\label{tab:aov}
+\caption{Tabla de análisis de varianza}
+\end{table}
+
+Para probar una hipótesis sobre la forma de la superficie de respuesta con base en el ajuste de un modelo candidato, generalmente la forma del modelo candidato es:
+\begin{equation}
+E(y)= \beta_0+\sum\limits^p_{j=1}\beta_jz_j
+\label{eq:2c1}
+\end{equation}
+donde cada $z_j$, $j=1,2,\ldots,p$ puede ser una función lineal, cuadrática u otra función de las proporciones de los componentes $x_i$, $i=1,2,\ldots,p$. La hipótesis nula que establece que la respuesta no depende de $z_j$ es:
+\begin{equation}
+H_0: \beta_j =0, \forall j=1,2,\ldots,p
+\label{eq:2c2}
+\end{equation}
+
+Cuando la ecuación (\ref{eq:2c2}) es cierta, el modelo \ref{eq:2c1} es:
+\begin{equation}
+E(y)= \beta_0
+\label{eq:2c3}
+\end{equation}
+Dado que el modelo de la hipótesis nula (\ref{eq:2c3}) se estima a partir de una combinación lineal de las \textit{N} osbervaciones, la suma de cuadrados ``total'', expresada como SST$=\sum\limits^N_{u=1}(y_u-\bar{y})^2$, es la suma de cuadrados del residual que sobra después de haber ajustado el modelo de la hipótesis nula. Por lo tanto, la suma de cuadrados total tiene $N-1$ grados de libertad (g.l.). La suma de cuadrados de la regresión, SSR$=\sum\limits^N_{u=1}(\hat{y}_u-\bar{y})^2$, es la contribución explicada al ajustar el modelo candidato (\ref{eq:2c1}) después de haber ajustado el modelo de la hipótesis nula. Los g.l. de la regresión es el número de parámetros \textit{independientes} adicionales estimados para el modelo candidato después de ajustar el modelo de la hipótesis nula. Si las $z_j$, $j=1,2,\ldots,p$, en el modelo \ref{eq:2c1} son independietes, entonces la suma de cuadrados de la regresión tiene \textit{p} g.l.\\
+
+Si ahora consideramos la forma canónica del polinomio de Scheffé en \textit{q} componentes $x_i$, $i=1,2,\ldots,q$, el modelo lineal de primer grado de la mezcla es:
+\begin{equation}
+E(y)=\sum\limits^q_{i=1}\beta_ix_i
+\label{eq:2c4}
+\end{equation}
+debido a la restricción $\sum\limits^q_{i=1}x_i=1$, la cual fuerza que el término $\beta_0$ esté confundido con las $\beta_i$. Permitiendo que $z_j=x_i$, $i=j=1,2,\ldots,p=q$, la hipótesis nula adecuada que establece que la respuesta no depende de los componentes de la mezcla (cambios entre mezclas) es:
+\begin{equation}
+H_0: \beta_1 =\beta_2 =\ldots=\beta_q =\beta_0
+\label{eq:2c5}
+\end{equation}
+El modelo resultante de la hipótesis nula nuevamente es (\ref{eq:2c3}), ya que
+\begin{equation}
+E(y)=\sum\limits^q_{i=1}\beta_0x_i=\beta_0\sum\limits^q_{i=1}x_i=\beta_0
+\end{equation}
+y la estimación por mínimos cuadrados de $\beta_0$ es $\bar{y}$.\\
+El modelo candidato (\ref{eq:2c4}) contiene $q-1$ parámetros independientes y por lo tanto la SSR asociada con el ajuste de (\ref{eq:2c4}) tiene $q-1$ grados de libertad. Del mismo modo, si el modelo candidato es el modelo cuadrático de Scheffé
+\begin{equation}
+E(y)=\sum\limits^q_{i=1}\beta_ix_i+\sum\limits_{i<j}\sum\limits^q\beta_{ij}x_ix_j
+\label{eq:2c6}
+\end{equation}
+entonces la hipótesis nula correspondiente que establece que la respuesta no depende de los componentes de la mezcla es
+\begin{equation}
+H_0: \beta_1 =\beta_2 =\ldots=\beta_q =\beta_0, \beta_{ij}=0, i<j
+\label{eq:2c7}
+\end{equation}
+
+Una vez más, la SSR asociada con el ajuste de (\ref{eq:2c6}) tiene $p-1$ ó $(q+2)(q-1)/2$ grados de libertad. Por lo tanto, ya sea que se esté probando (\ref{eq:2c2}) ó (\ref{eq:2c7}) ajustando (\ref{eq:2c1}) o (\ref{eq:2c6}), el análisis de varianza correspondiente es el que se muestra en la Cuadro~\ref{tab:aov}. \citep[Pp.~94-95]{john2002experiments}

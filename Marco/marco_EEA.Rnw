@@ -1,0 +1,178 @@
+\chapter{Dise\~{n} experimental para mezclas de \textit{q} componentes.}
+
+\section{Experimentos con mezclas.}
+
+Un diseño para mezclas es un tipo de experimento factorial que se utiliza para encontrar la mejor composición de una mezcla de ingredientes. En estos experimentos, los factores son cada uno de los componentes de una mezcla y son distintos a los demás tipos de experimentos factoriales porque los porcentajes de los componentes están sometidos a las condiciones
+$$
+\sum\limits^{q}_{i=1}x_i=1\mbox{, }x_i \geq 0 \mbox{, }(i=1,2,\ldots, q)
+\label{eq:intro01}
+$$
+Por lo tanto, al incrementar el nivel de un componente debe reducir el nivel de por lo menos uno de los demás.\\
+
+Mientras que en un experimento factorial frecuentemente se utilizan modelos de ANOVA, en los diseños para mezclas se utiliza principalmente el análisis de regresión, suponiendo que $
+\epsilon\sim N(0,\sigma_{\epsilon}^2)$ y que la verdadera superficie de respuesta (lineal, cuadrática o cúbica) es contínua sobre toda la región estudada y sólo dependen de los componentes de la mezcla.\citep[Pp.~280]{rasch2011optimal}\\
+
+Una contribución importante a este tipo de diseños fue hecha por \cite{Scheffe1958, Scheffe1963}, quien propuso los modelos \textit{Simplejo-celosía} y \textit{Simplejo-centroide} para mezclas de \textit{q} componentes.\\
+
+
+\subsection{Restricciones lineales en las proporciones de los componentes.}
+
+Es común que existan restricciones lineales sobre los porcentajes de los componentes, por ejemplo, en algunos casos el porcentaje de algún(os) componente(s) no podrá(n) valer cero ($x_i >0$) y deberán estar presentes en una proporción mínima ($x_i \geq L_i$) y en una proporción máxima ($x_i \leq U_i$). De forma general, cada componente deberá estar presente dentro de los límites
+$$
+0\leq L_i \leq x_i \leq U_i \leq 1 \mbox{, } i=1,2,\ldots,q
+\label{eq:john443}
+$$
+Estas restricciones se pueden expresar de forma general como:
+\begin{equation}
+C_j \leq A_{1j}x_i+A_{2j}x_2+\cdots+A_{qj}x_q\leq D_j \mbox{, } j=1,2,\ldots,h
+\label{eq:john456}
+\end{equation}
+donde $A_{ij}$ son constantes escalares y algunas $A_{ij}$ pueden valer cero, o también se pueden expresar como restricciones modificadas
+\begin{equation}
+0\leq A_{0j}+\sum\limits^q_{i=1}A_{ij}x_i \mbox{, } j=1,2,\ldots,\mbox{hasta }2h
+\label{eq:john460}
+\end{equation}
+
+La imposición de límites superiores a algunas o todas las $x_i$ crea una región con forma de simplejo invertido que se conoce como \textit{U}-Simplejo y además impone \textit{límites inferiores implícitos} $L_i^*$, para todas las $x_i$. El \textit{U}-Simplejo puede yacer total o parcialmente dentro del simplejo original, por lo que la región experimental resulta ser el espacio común entre ambos simplejos(FIGURA 4.5).\\
+
+El tamaño lineal del \textit{U}-Simplejo se define como
+\begin{equation}
+R_U=\sum\limits^q_{i=1}U_i-1
+\label{eq:john423}
+\end{equation}
+donde $0<R_U\leq q-1$. Por supuesto que cuando el \textit{U}-Simplejo yace completamente dentro del simplejo original, entonces $R_U\leq\frac{1}{2}$.\\
+
+Los límites inferior y superior implícitos para $x_i$ son
+\begin{equation}
+L_i^*=U_i-R_U
+\label{eq:john424}
+\end{equation}
+\begin{equation}
+U^*_{i}=L_i+R_L
+\label{eq:john425}
+\end{equation}
+donde $R_L=1-\sum\limits^q_{i=1}L_i$. Los límites inferiores implícitos (\ref{eq:john424}) se utilizan para determinar si los límites son consistentes \citep{Pipel1983a, Crosier1984}.\\
+
+Para definir la forma (número de vértices, filos, caras, etc.) y el tamaño de la región experimental de las proporciones de las mezclas factibles cuando existen límites inferiores y superiores, es necesario tener límites consistentes. Si uno o varios $U_i > U^*_i$ o $L_i < L^*_i$, entonces dichos límites son inalcanzables y se dice que el conjunto de límites sobre las $x_i$ es \textit{inconsistente}. Los límites inconsistentes son inútiles, y para que los límites sean útiles, se deben hacer consistentes sumando y restando cantidades a estos\citep[Pp.~144-145]{john2002experiments}.\\
+
+La presencia de restricciones multicomponente también pueden modificar la forma y el tamaño de la región experimental definida únicamente por límites superiores e inferiores sobre las proporciones $x_i$ de los componentes \citep[Pp.~180]{john2002experiments}. Este tipo de mezclas se pueden modelar con diseños distintos a los propuestos por \cite{Scheffe1958, Scheffe1963} llamados diseños para mezclas restringidas o diseños de \textit{Vértices-Extremos} \citep[Pp.~279]{rasch2011optimal}.\\
+
+Para generar las coordenadas de los vértices, los centroides de los filos, caras (bi-, tridimensionales, etc.) y el centroide general de la región experimental con restricciones con la forma (\ref{eq:john460}), \cite{Piepel1988a} publicó los algoritmos \textit{CONAEV} Y \textit{CONVRT}. Este último está disponible dentro de algunos paquetes estadísticos y través de la librería ``mixexp'' de \textit{R} \citep{Lawson2012}. Nuevamente, la condición para poder encontrar estas coordenadas es que la región experimental sea consistente.\\
+
+\section{Mezclas de mezclas.}
+
+\subsection{Múltiples celosías para clasificaciones de componentes \textit{Mayores} y \textit{Menores}.}
+
+Algunos experimentos con mezclas involucran componentes categóricos; estas categorías se clasifican como componentes \textit{mayores} y cada categoría consisten en algún número de componentes conocidos como componentes \textit{menores}. En lo sucesivo, se utilizarán los términos \textit{M}-componentes para referir a los componentes mayores y \textit{m}-componentes para los componentes menores.\\
+
+Modelar los cambios en la respuesta al variar las proporciones de los \textit{M}-componentes es lo que \cite{CornellRamsey1998} llamaron el mezclado intercategoría de los \textit{M}-componentes. Así mismo, si se mantienen fijas las proporciones de los \textit{M}-componentes y se estudia la respesta en función de las proporciones relativas de los \textit{m}-componentes, se conoce como el mezclado intracategoría entre los \textit{m}-componentes dentro de los \textit{M}-componentes. Por lo tanto, para estudiar la respuesta entre las mezclas, se debe modelar el mezclado inter- e intracategorías de los \textit{M}- y \textit{m}-componentes.\\
+
+Los diseños que se utilizan para estudiar las caractertísticas de mezclado de todos los componentes se conoce como deseños de múltiples-celosías.\citep[Pp.~191]{john2002experiments}\\
+
+Cuando las proporciones de los \textit{M}-componentes o $c_i$, $i=1,2,\ldots,p$, son variables, es posible medir las propiedades de mezclado de los \textit{M}-componentes y de los \textit{m}-componentes dentro de cada \textit{M}-componente. Así mismo, es posible medir el impacto, si existe, que produce el mezclado de los \textit{M}-componentes sobre las propiedades de mezclado de los \textit{m}-componentes. Es decir, se puede generar un modelo combinado en las proporciones de los \textit{M}- y \textit{m}- componentes para medir:
+\begin{enumerate}
+\item El mezclado entre los \textit{p} \textit{M}-componentes, o el mezclado intercategoría de los \textit{M}-componentes.
+\item El mezclado entre los $n_i\geq 2$ \textit{m}-componentes, o el mezclado intracategoría entre los \textit{m}-componentes dentro de cada \textit{M}-componente.
+\item El mezclado entre los \textit{M}- y \textit{m}-componentes, o el impacto del mezclado en (1) sobre el mezclado en (2).
+\end{enumerate}
+\citep[Pp.~198]{john2002experiments}
+
+\cite{CornellRamsey1998} propusieron modelar un sistema de $p=2$ y $n_1=n_2=2$ escalando $X_{ij}$ utilizando
+\begin{equation}
+x_{ij}=\frac{X_{ij}}{c_i} \mbox{, } i=1,\ldots,p \mbox{, } j=1,\ldots,n_i
+\label{eq:john480mod}
+\end{equation}
+de modo que
+$$\sum\limits^{n_i}_{j=1}x_{ij}=1, \ j=1,\ldots,n_i$$ 
+Esto nos permite escribir cada \textit{M}-componente como una mezcla de sus \textit{m}-componentes. La estrategia utilizada por \cite{CornellRamsey1998} fue ajustar un modelo para cada mezcla de \textit{m}-componentes dentro de cada \textit{M}-componente, y repetirlo en cada mezcla de los \textit{M}-componentes. Por ejemplo, en el caso $p=2$ y $n_1=n_2=2$, si se ajsta un modelo de Scheffé de segundo orden en cada mezcla de \textit{m}-componentes
+\begin{equation}
+\begin{array}{c}
+\eta_1=\alpha_1x_{11}+\alpha_2x_{12}+\alpha_{1112}x_{11}x_{12}+\varepsilon\\
+\eta_2=\beta_1x_{21}+\beta_2x_{22}+\beta_{2122}x_{21}x_{22}+\varepsilon
+\end{array}
+\label{eq:john481mod}
+\end{equation}
+donde $\eta_1$ y $\eta_2$ representan lo respuesta para las mezclas de los \textit{m}-componentes dentro una mezcla ($c_1$, $c_2$) de los \textit{M}-componentes. Para ajustar los modelos (\ref{eq:john481mod}) se necesitan por lo menos tres mezclas de los \textit{m}-componentes dentro de cada \textit{M}-componente, como en un \textit{Simplejo-Celosía} \{2, 2\}. Para cada mezcla ($c_1$, $c_2$) de los \textit{M}-componentes, las coordenadas de los \textit{m}-componentes se obtienen multiplicando las coordenadas de la mezcla de los \textit{m}-componentes 1 ($n_1=2$) por las coordenadas de la mezcla de los \textit{m}-componentes 2 ($n_2=2$). Las nueve mezclas resultantes de los \textit{m}-componentes ($q=4$) es una doble-celosía \{2,2; 2,2\} que tiene las coordenadas ($x_{11},x_{12},x_{21},x_{22}$). Si además se utilizan las mismas nueve mezclas de la doble-celosía en cada una de las tres mezclas de un \textit{Simplejo-Celosía} \{2,2\} para las mezclas de los \textit{M}-componentes ($p=2$), esto resulta en 27 mezclas distintas.
+
+Un modelo que se puede utilizar para modelar el mezclado intracategoría es el que resulta de multiplicar cada término dentro de $\eta_1$ por cada término dentro de $\eta_2$ en la ecuación (\ref{eq:john481mod}). Cuando se hace esto, el modelo resultante es un modelo doble de Scheffé con nueve términos
+\begin{equation}
+\begin{array}{rl}
+\eta_{1}\eta_{2}=&\gamma_{13}x_1x_3+\gamma_{14}x_1x_4+\gamma_{23}x_2x_3+ \gamma_{24}x_2x_4+\gamma_{123}x_1x_2x_3+\gamma_{124}x_1x_2x_4\\
+ & +\gamma_{134}x_1x_3x_4+\gamma_{234}x_2x_3x_4+\gamma_{1234}x_1x_2x_3x_4
+\end{array}
+\label{eq:john482}
+\end{equation}
+donde se sustituyó $x_{11}=x_1$, $x_{12}=x_2$, $x_{21}=x_3$ y $x_{22}=x_4$. Los coeficientes $\gamma_{13}$, $\gamma_{123}$,..., $\gamma_{1234}$ son simples funciones de la respuesta que se obitene en las nueve mezclas de la doble-celosía \{2,2; 2,2\}.\\
+
+Otra estrategia es ajustar un modelo en dos variables independientes $z_1$ y $z_2$, cada una de las cuales expresa la diferencia entre los \textit{m}-componentes, es decir, $z_1=x_{12}-x_{11}$ y $z_2=x_{22}-x_{21}$. Para la doble-celosía \{2,2; 2,2\} sólo se necesitan 2 variables independientes ya que la dimensionalidad de cada plano correspondiente cada mezcla del \textit{Simplejo-Celosía} \{2,2\} para los \textit{M}-componentes es dos. Este es el modelo de interacción de nueve términos \citep{CornellMontgomery1996}
+\begin{equation}
+\begin{array}{rl}
+\eta=& \delta_0+\delta_1z_1+\delta_2z_2+\delta_{12}z_1z_2+\delta_{11}z^2_1+\delta_{22}z^2_2+ \delta_{112}z^2_1z_2\\
+ & +\delta_{122}z_1z^2_2+\delta_{1122}z^2_1z^2_2
+\end{array}
+\label{eq:john483}
+\end{equation}
+
+Los efectos del mezclado intercategoría de las mezclas de $M_1$:$M_2$ sobre las propiedades del mezclado intracategoría en las ecuaciones (\ref{eq:john482}) y (\ref{eq:john483}) se puede modelar con uno de varios tipos de modelos combinados. Uno forma particular es definiendo la codificación de la variable composición de \textit{M}-componentes. Para el \textit{Simplejo-Celosía} \{2,2\} de los \textit{M}-componentes es
+$$
+c=\frac{c_1-0.5}{0.25}
+$$
+y se escribe el modelo de mezclado combinado inter- e intracategoría como
+\begin{equation}
+\begin{array}{rllll}
+\eta= & \{ \mbox{Ec. \ref{eq:john482} o \ref{eq:john483} } \} & + \{ \mbox{Ec. \ref{eq:john482} o \ref{eq:john483} } \}c & + \{ \mbox{Ec. \ref{eq:john482} o \ref{eq:john483} } \}c^2 & + \varepsilon \\
+= & \mbox{Porción inicial} & + \mbox{Porción intermedia} & + \mbox{Porción final} & +\varepsilon
+\end{array}
+\label{eq:john484}
+\end{equation}
+Si $c^2$ está codificada como 1, 0 y 1 cuando $c_1=0.75,0.50 \mbox{ y } 0.25$, respectivamente, entonces en la ecuación (\ref{eq:john484}) la porción inicial representa la superficie $\eta$ sobre el plano intermedio en $c=0$ ó en $(c_1,c_2)=(0.50,0.50)$, mientras que la porción intermedia representa las diferencias entre las formas de las superficies (en términos de la propiedades de mezclado de $x_1,\ldots,x_4$) en los dos planos extremos del \textit{Simplejo-Celosía} \{2,2\} de los \textit{M}-componentes, esto es, en $(c_1,c_2)=(0.75,0.25)$ ó $c=1$ y en $(c_1,c_2)=(0.25,0.75)$ ó $c=-1$. La porción final en la ecuación (\ref{eq:john484}) representa las diferencias entre las formas de la superficie $\eta$ en $(c_1,c_2)=(0.50,0.50)$ y $(c_1,c_2)=(0.25,0.75)$. Las estimaciones de los coeficientes de los términos en la porción final de la ecuación (\ref{eq:john484}) que son significativamente distintos a cero representan los efectos de mezclado intercategoría no lineal de los \textit{M}-componentes sobre el mezclado intracategoría de los \textit{m}-componentes.\citep[Pp.~201-202]{john2002experiments}
+
+\section{Inclusión de variables de proceso en experimentos con mezclas.}
+
+Las variables de proceso son factores que no forman una porción de la mezcla, pero cuyos niveles, al ser modificados, pueden modificar las propiedades de mezclado de los ingredientes. A fin de incluir variables de proceso en el diseño y análisis de experimentos con mezclas, existen dos enfoques distintos. El primero es trabajar directamente con los componentes $x_1, x_2,\ldots,x_q$. El segundo es trabajar con q-1 variables independientes $w_1,w_2,\ldots,w_{q-1}$ \citep{Claringbold1955, john2002experiments}.\\
+
+\subsection{Diseños que consisten en \textit{Simplejo-celosía} y arreglos factoriales.}
+
+Supongamos que en un experimento con una mezcla que consiste en \textit{q} componentes también se tienen \textit{n} variables de proceso. El número de variables de proceso puede ser cualquier entero positivo \textit{n}.	En casos prácticos es razanable mantener \textit{n} pequeño ($n\leq 6$) porque también se están estudiando las propiedades de mezclado de los componentes de la mezcla.\\
+
+Para definir la región de interés, que ahora también incluye experimentos con mezclas y variables de proceso, consideremos el caso donde cada una de las variabales de proceso se estudiarán sólo en dos niveles. Si los niveles de cada una de las variables de proceso se escalan de modo que los niveles alto y bajo, si es cuantitativa, de la \textit{l}-ésima varibales se expresan como $z_l=-1$ y $z_l=+1$, respectivamente, entonces la región de interés de las variables de proceso es está codificado para que sea un hipercubo \textit{n}-dimensional.\\
+
+Para los componentes de la mezcla, asumamos que cada $0 \leq x_i \leq 1$ por lo que la región de interés de la mezcla es el simplejo ($q-1$)-dimensional. La región de interés combinada para los componentes de la mezcla y las variables de proceso es de dimensionalidad $q-1+n$.\\
+
+Establecer configuraciones de diseño en las variables de proceso y los componentes de la mezcla involucra establecer un diseño de mezcla en cada punto de la configuración de las varibales de proceso o, de modo similar, ubicar un arreglo factorial en cada punto de composición de los componentes de la mezcla. Por ejemplo, supongamos que tenemos un diseño \textit{Simplejo-centroide} \{3,2\} para ajustar el modelo cúbico especial en los componentes de la mezcla:
+\begin{equation}
+\eta_{ce}=\beta_1x_1+\beta_2x_2+\beta_3x_3+\beta_{12}x_1x_2+\beta_{13}x_1x_3+\beta_{23}x_2x_3
++\beta_{123}x_1x_2x_3
+\label{eq:john71}
+\end{equation}
+Tenemos además $n=2$ variables de proceso con niveles escalados $z_1=\pm1$ y $z_2=\pm1$, y se considera un arreglo factorial $2^2$ para ajustar el modelo en las dos variables de proceso:
+\begin{equation}
+\eta_{vp}=\alpha_0+\alpha_1z_1+\alpha_2z_2+\alpha_{12}z_1z_2
+\label{eq:john72}
+\end{equation}
+[Los subíndices \textit{sc} y \textit{pv} en las ecuaciones (\ref{eq:john71}) y (\ref{eq:john72}) se utilizan para denotar `cúbico especial' y `variables de proceso', respectivamente]. El número total de tratamientos que involucran proporciones de componentes de la mezcla y las variables de proceso crece rápidamente cuando \textit{q} o \textit{n} son grandes.\\
+
+Para expresar la forma del modelo combinado que corresponde a los modelos de las ecuaciones (\ref{eq:john71}) y (\ref{eq:john72}), escribamos $\beta_i(z)$, $\beta_{ij}(z)$ y $\beta_{123}(z)$, $i,j=1,2,3$, para indicar que los parámetros $\beta_i$, $\beta_{ij}$ y $\beta_{123}$, en la ecuación (\ref{eq:john71}) son funciones de los niveles de $z_1$ y $z_2$. Por lo tanto, el modelo combinado, que llamaremos \textit{modelo de regresión} para diferenciarlo del modelo ANOVA convencional es:
+\begin{equation}
+\begin{array}{rl}
+\eta(x,z)=&\beta_1(z)x_1+\beta_2(z)x_2+\beta_3(z)x_3+\beta_{12}(z)x_1x_2\\
+&+\beta_{13}(z)x_1x_3+\beta_{23}(z)x_2x_3+\beta_{123}(z)x_1x_2x_3\\
+=&\sum\limits^3_{i=1}\left[\gamma^0_i+\sum\limits^2_{l=1}\gamma^l_iz_l+\gamma^{12}_iz_1z_2\right]x_i\\
+&+\sum\sum\limits^3_{i<j}\left[\gamma^0_{ij}+\sum\limits^2_{l=1}\gamma^l_{ij}z_l+\gamma^{12}_{ij}z_1z_2\right]x_ix_j\\
+&+\left[\gamma^0_{123}+\sum\limits^2_{l=1}\gamma^l_{123}z_l+\gamma^{12}_{123}z_1z_2\right]x_1x_2x_3\\
+\end{array}
+\end{equation}
+o de forma equivalente y más fácil de interpretar:
+\begin{equation}
+\begin{array}{rl}
+\eta(x,z)=&\sum\limits^3_{i=1}\gamma^0_ix_i+\sum\sum\limits^3_{i<j}\gamma^0_{ij}x_ix_j+\gamma^{0}_{123}x_1x_2x_3\\
+&+\sum\limits^2_{l=1}\left[\sum\limits^3_{i=1}\gamma^l_{i}x_i+\sum\sum\limits^3_{i<j}\gamma^l_{ij}x_ix_j+\gamma^{l}_{123}x_1x_2x_3\right]z_l\\
+&+\left[\sum\limits^3_{i=1}\gamma^{12}_{i}x_i+\sum\sum\limits^3_{i<j}\gamma^{12}_{ij}x_ix_j+\gamma^{12}_{123}x_1x_2x_3\right]z_1z_2\\
+\end{array}
+\label{eq:john73}
+\end{equation}
+En la ecuación (\ref{eq:john73}) $\gamma^0_i$ reemplaza a $\alpha_0\beta_i$, $\gamma^l_i$ reemplaza a $\alpha_l\beta_i,\ldots, \gamma^{\lambda}_{Sr}$ reemplaza a $\alpha_{\lambda}\beta_{Sr}$, y así sucesivamente; $\lambda\in\{1,2,12\}$ y $Sr\in\{1,2,3,12,13,23,123 \}$. La ecuación (\ref{eq:john73}) contiene $7 \times 4=28$ términos, y este número es igual al número de puntos en el diseño combinado. La ecuación (\ref{eq:john73}) es de grado $3+2=5$ en las $x$s y las $z$s.\\
+
+La interpretación de los coeficientes $\gamma^{\lambda}_{Sr}$ en la ecuación (\ref{eq:john73}) se simplifica por el uso del diseño \textit{Simplejo-centroide} en los componentes de la mezcla en cada una de las cuatro configuraciones de las dos variables de proceso. Para expicar esto, sean $z_l=\pm 1, l=1,2$ los valores alto y bajo para las variables codificadas. Ahora, los primeros siete términos de lado derecho de la ecuación (\ref{eq:john73}) se llaman \textit{la porción de mezclado lineal y no lineal del modelo} ya que estos términos solo involucran las proporciones de los componentes. Los 21 términos restantes representan los efectos de cambiar las condiciones de procesamiento (es decir, los niveles o la configuración de las variables de proceso) sobre las propiedades de mezclado lineal y no lineal de los componentes de la mezcla.
+\citep[Pp.~354-365]{john2002experiments}
+

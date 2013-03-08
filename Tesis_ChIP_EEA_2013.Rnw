@@ -1,0 +1,93 @@
+\documentclass[10pt,spanish,letterpaper,oneside]{report}
+\usepackage[round,authoryear]{natbib}
+\usepackage[spanish]{babel}
+\usepackage{UNAMThesis}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\decimalpoint
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+%esto es para obtener PDFs de buena calidad
+\usepackage[T1]{fontenc}
+%\usepackage{ae,aecompl}
+\usepackage{pslatex}
+%%
+\logounam{Escudo-UNAM}
+\logoinstitute{Escudo-IIMAS}
+\pagenumbering{roman}
+\flushbottom
+
+\begin{document}
+\title{Diseño experimental para una mezcla de \textit{q} componentes y \textit{n} variables de proceso para investigar las propiedades reológicas de geles de pectina.}
+
+\author{Christian I. Ponce Guerrero}
+\prevdegrees{Lic. Química de alimentos, Universidad Nacional Autónoma de México,  (2007)}
+\institute{Instituto de Investigaciones en Matemáticas Aplicadas y en Sistemas}
+\department{Coordinación de Estudios de Postgrado}
+\degree{Especialista en Estadística Aplicada}
+\supervisor{M. en C. Patricia Isabel Romero Mares}
+\city{México, D.F.}
+\degreemonth{Enero}
+\degreeyear{2013}
+
+\maketitle
+<<opciones>>=
+opts_chunk$set(concordance=TRUE, echo=FALSE, results='asis', dev=c('postscript','pdf'), fig.path='Figuras/')
+@
+\begin{dedication}
+``Creer que nuestras acciones tienen un efecto limitado\\
+es absurdo, las ideas viajan, se transforman e influyen\\
+en personas que jamás imaginamos.'' \\
+\textsc{Christian I. Ponce}
+\end{dedication}
+
+\begin{acknowledgements}
+<<dedicatoria, child='Dedicatoria/dedicatoria.Rnw'>>=
+@
+\end{acknowledgements}
+
+\tableofcontents
+\clearpage
+
+\begin{foreword}
+<<prologo, child='Prologo/prologo.Rnw'>>=
+@
+\end{foreword}
+
+\begin{resumen}
+<<resumen, child='Resumen/resumen.Rnw'>>=
+@
+\end{resumen}
+
+%\begin{abstract}
+%
+%\end{abstract}
+
+\pagenumbering{arabic}
+
+\part{Introducción}
+<<introduccion, child='Introduccion/introduccion.Rnw'>>=
+@
+\part{Marco teórico}
+<<marco, child='Marco/marco_EEA.Rnw'>>=
+@
+\part{Planteamiento del problema}
+<<problema, child='Problema/problema.Rnw'>>=
+@
+\part{Diseño experimental}
+<<diseno, child='Diseno/diseno.Rnw'>>=
+@
+\part{Apéndices}
+\appendix 
+<<apendicea, child='Apendices/apendicea.Rnw'>>=
+@
+<<apendiceb, child='Apendices/apendiceb.Rnw'>>=
+@
+<<apendicec, child='Apendices/apendicec.Rnw'>>=
+@
+
+\bibliographystyle{plainnat}
+\bibliography{testBib}
+
+\end{document}

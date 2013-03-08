@@ -6,4 +6,6 @@
 *.ps
 *.pdf
 *.eps
+*.blg
+*.toc
 *~
