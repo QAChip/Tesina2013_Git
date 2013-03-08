@@ -1,46 +1,68 @@
-\chapter{Dise\~{n} experimental para mezclas de \textit{q} componentes.}
+\chapter{Diseños experimentales para mezclas de \textit{q} componentes.}
 
-\section{Experimentos con mezclas.}
-
-Un diseño para mezclas es un tipo de experimento factorial que se utiliza para encontrar la mejor composición de una mezcla de ingredientes. En estos experimentos, los factores son cada uno de los componentes de una mezcla y son distintos a los demás tipos de experimentos factoriales porque los porcentajes de los componentes están sometidos a las condiciones
+\section{Diseños experimentales para mezclas.}
+%Este capitulo debe dividirse en trozos mas pequeños una vez que averigue como chin... anidar los hijos. Parece que en un bug que no encuentre los hijos de los hijos.
+Un diseño experimental para mezclas es un tipo de experimento factorial que se utiliza para obtener un modelo estadístico de la(s) respuesta(s) en función de la composición de la mezcla en una forma eficiente. Los factores son cada uno de los componentes de una mezcla y son distintos a los demás tipos de experimentos factoriales porque las proporciones de los componentes están sometidas a la restricción
 $$
-\sum\limits^{q}_{i=1}x_i=1\mbox{, }x_i \geq 0 \mbox{, }(i=1,2,\ldots, q)
+\sum\limits^{q}_{i=1}x_i=1\mbox{; } \lbrace 0\leq x_i\leq 1; x_i \in \mathbb{R}, i=2,3,...,q\mbox{; } i,q \in \mathbb{N}\rbrace
 \label{eq:intro01}
 $$
-Por lo tanto, al incrementar el nivel de un componente debe reducir el nivel de por lo menos uno de los demás.\\
+donde $q$ es el número de componentes. Por lo tanto, al incrementar la proporción de un componente debe reducir la proporción de por lo menos uno de los demás.
 
-Mientras que en un experimento factorial frecuentemente se utilizan modelos de ANOVA, en los diseños para mezclas se utiliza principalmente el análisis de regresión, suponiendo que $
-\epsilon\sim N(0,\sigma_{\epsilon}^2)$ y que la verdadera superficie de respuesta (lineal, cuadrática o cúbica) es contínua sobre toda la región estudada y sólo dependen de los componentes de la mezcla.\citep[Pp.~280]{rasch2011optimal}\\
+Mientras en un experimento factorial frecuentemente se utilizan modelos de Analisis de varianza (\emph{ANOVA}, por su acrónimo en inglés), en los diseños para mezclas se utiliza principalmente el análisis de regresión, suponiendo que el error $\epsilon\sim N(0,\sigma_{\epsilon}^2)$ y que la verdadera superficie de respuesta (lineal, cuadrática o cúbica) es contínua sobre toda la región estudiada y sólo dependen de los componentes de la mezcla\citep[Pp.~280]{rasch2011optimal}, aunque también se puede incluir en el diseño otros factores que no forman parte de los componentes de la mezcla, los cuales se conocen como variables de proceso.
 
-Una contribución importante a este tipo de diseños fue hecha por \cite{Scheffe1958, Scheffe1963}, quien propuso los modelos \textit{Simplejo-celosía} y \textit{Simplejo-centroide} para mezclas de \textit{q} componentes.\\
+El modelo estadístico que se pretende obtener mediante un diseño experimental es útil para predecir la(s) respuesta(s). De este modo, también es posible encontrar la composición de una mezcla de ingredientes que proporciona la(s) respuesta(s) dentro de intervalos deseables(s), conocida también como respuesta(s) óptima(s).
 
-
+Una contribución importante a este tipo de diseños fue hecha por \cite{Scheffe1958, Scheffe1963}, quien propuso los modelos \textit{Simplejo-celosía} y \textit{Simplejo-centroide} para mezclas de \textit{q} componentes.
 \subsection{Restricciones lineales en las proporciones de los componentes.}
-
-Es común que existan restricciones lineales sobre los porcentajes de los componentes, por ejemplo, en algunos casos el porcentaje de algún(os) componente(s) no podrá(n) valer cero ($x_i >0$) y deberán estar presentes en una proporción mínima ($x_i \geq L_i$) y en una proporción máxima ($x_i \leq U_i$). De forma general, cada componente deberá estar presente dentro de los límites
-$$
+Es común que existan restricciones lineales sobre las proporciones de los componentes, por ejemplo, en algunos casos la proporción de algún(os) componente(s) no podrá(n) valer cero ($x_i >0$) y deberán estar presentes en una proporción mínima ($x_i \geq L_i$) y en una proporción máxima ($x_i \leq U_i$). De forma general, cada componente deberá estar presente dentro de los límites
+\begin{equation}
 0\leq L_i \leq x_i \leq U_i \leq 1 \mbox{, } i=1,2,\ldots,q
 \label{eq:john443}
-$$
+\end{equation}
 Estas restricciones se pueden expresar de forma general como:
 \begin{equation}
 C_j \leq A_{1j}x_i+A_{2j}x_2+\cdots+A_{qj}x_q\leq D_j \mbox{, } j=1,2,\ldots,h
 \label{eq:john456}
 \end{equation}
-donde $A_{ij}$ son constantes escalares y algunas $A_{ij}$ pueden valer cero, o también se pueden expresar como restricciones modificadas
+donde $A_{ij}$ son constantes escalares y algunas $A_{ij}$ pueden valer cero y $h$ es el número de restricciones. También es posible representar las mismas restricciones de la siguiente forma
 \begin{equation}
-0\leq A_{0j}+\sum\limits^q_{i=1}A_{ij}x_i \mbox{, } j=1,2,\ldots,\mbox{hasta }2h
+0\leq A_{0j}+\sum\limits^q_{i=1}A_{ij}x_i \mbox{, } j=1,2,\ldots,2h
 \label{eq:john460}
 \end{equation}
-
-La imposición de límites superiores a algunas o todas las $x_i$ crea una región con forma de simplejo invertido que se conoce como \textit{U}-Simplejo y además impone \textit{límites inferiores implícitos} $L_i^*$, para todas las $x_i$. El \textit{U}-Simplejo puede yacer total o parcialmente dentro del simplejo original, por lo que la región experimental resulta ser el espacio común entre ambos simplejos(FIGURA 4.5).\\
+Esta última  representación es la forma que se utilizará al trabajar en \emph{R}.
+\begin{figure}
+\begin{center}
+\label{fig:u-simplejo1}
+\caption{\textit{U}-Simplejo totalmente dentro del simplejo original: $q=3$ componentes, $0\leq x_i\leq 0.5$, $i=1,2,3$.}
+<<u-simplejo1, fig=TRUE, echo=FALSE, eps=TRUE, out.width='0.50\\textwidth', fig.align='center'>>=
+u1=c(0,0.5)
+u2=c(0,0.5)
+u3=c(0,0.5)
+print(Xvert(3, u1,u2,u3, ndm=0))
+@
+\end{center}
+\end{figure}
+\begin{figure}
+\begin{center}
+\label{fig:u-simplejo2}
+\caption{\textit{U}-Simplejo dentro y fuera del simplejo original: $q=3$ componentes, $0\leq x_i\leq 0.7$, $i=1,2,3$.}
+<<u-simplejo2, fig=TRUE, echo=FALSE, eps=TRUE, out.width='0.50\\textwidth', fig.align='center'>>=
+up1=c(0,0.7)
+up2=c(0,0.7)
+up3=c(0,0.7)
+print(Xvert(3, up1,up2,up3, ndm=0))
+@
+\end{center}
+\end{figure}
+La imposición de límites superiores a algunas o todas las $x_i$ crea una región con forma de simplejo invertido que se conoce como \textit{U}-Simplejo y además impone \textit{límites inferiores implícitos} $L_i^*$ para todas las $x_i$. El \textit{U}-Simplejo puede yacer totalmente dentro del simplejo original como en la Figura~\ref{fig:u-simplejo1} o parcialmente como en la Figura~\ref{fig:u-simplejo2}, por lo que la región experimental resulta ser el espacio común entre ambos simplejos.
 
 El tamaño lineal del \textit{U}-Simplejo se define como
 \begin{equation}
 R_U=\sum\limits^q_{i=1}U_i-1
 \label{eq:john423}
 \end{equation}
-donde $0<R_U\leq q-1$. Por supuesto que cuando el \textit{U}-Simplejo yace completamente dentro del simplejo original, entonces $R_U\leq\frac{1}{2}$.\\
+donde $0<R_U\leq q-1$. Por supuesto que cuando el \textit{U}-Simplejo yace completamente dentro del simplejo original, entonces $R_U\leq\frac{1}{2}$.
 
 Los límites inferior y superior implícitos para $x_i$ son
 \begin{equation}
@@ -51,17 +73,32 @@ L_i^*=U_i-R_U
 U^*_{i}=L_i+R_L
 \label{eq:john425}
 \end{equation}
-donde $R_L=1-\sum\limits^q_{i=1}L_i$. Los límites inferiores implícitos (\ref{eq:john424}) se utilizan para determinar si los límites son consistentes \citep{Pipel1983a, Crosier1984}.\\
+donde $R_L=1-\sum\limits^q_{i=1}L_i$. Los límites inferiores implícitos (\ref{eq:john424}) se utilizan para determinar si los límites son consistentes \citep{Pipel1983a, Crosier1984}.
 
-Para definir la forma (número de vértices, filos, caras, etc.) y el tamaño de la región experimental de las proporciones de las mezclas factibles cuando existen límites inferiores y superiores, es necesario tener límites consistentes. Si uno o varios $U_i > U^*_i$ o $L_i < L^*_i$, entonces dichos límites son inalcanzables y se dice que el conjunto de límites sobre las $x_i$ es \textit{inconsistente}. Los límites inconsistentes son inútiles, y para que los límites sean útiles, se deben hacer consistentes sumando y restando cantidades a estos\citep[Pp.~144-145]{john2002experiments}.\\
+\subsection{Consistencia de los límites.}
+Al desarrollar restricciones de la forma \ref{eq:john443} y \ref{eq:john456} es necesario que estos sean consistentes. Sea $\mathbf{R}$ el conjunto de puntos (mezclas) dentro de la región restringida definida por \ref{eq:john443} y \ref{eq:john456}. Se dice entonces que las restricciones de la forma \ref{eq:john443} son consistentes si existe en $\mathbf{R}$ puntos $\mathbf{x}=(x_1,x_2,\ldots,x_q)$ tales que $x_i=a_i$ y $x_i=b$ para cada $i=1,2,\ldots,q$. Del mismo modo, se dice que las restricciones de la forma \ref{eq:john456} son consistentes si existe en $\mathbf{R}$ puntos $\mathbf{x}$ tales que $y_i=C_i$ y $y_i=D_j$ para cada $j$, donde $y_j=A_{1j}x_i+A_{2j}x_2+\cdots+A_{qj}x_q$. Inherentemente en estas definiciones las restricciones  de la forma \ref{eq:john456} deben satisfacer \ref{eq:john443} \citep{Pipel1983a}. En otras palabras, si uno o varios $U_i > U^*_i$ o $L_i < L^*_i$, entonces dichos límites son inalcanzables y se dice que el conjunto de límites sobre las $x_i$ es \textit{inconsistente}.
 
-La presencia de restricciones multicomponente también pueden modificar la forma y el tamaño de la región experimental definida únicamente por límites superiores e inferiores sobre las proporciones $x_i$ de los componentes \citep[Pp.~180]{john2002experiments}. Este tipo de mezclas se pueden modelar con diseños distintos a los propuestos por \cite{Scheffe1958, Scheffe1963} llamados diseños para mezclas restringidas o diseños de \textit{Vértices-Extremos} \citep[Pp.~279]{rasch2011optimal}.\\
+\subsection{Región experimental.}
+La región experimental es entonces el espacio dentro del Simplejo delimitado por las restricciones. Para definir la forma (número de vértices, filos, caras, etc.) y el tamaño de la región experimental de las proporciones de las mezclas factibles cuando existen límites inferiores y superiores, es necesario tener límites consistentes. Los límites inconsistentes son inútiles y, para que los límites sean útiles, se deben hacer consistentes sumando y restando cantidades a estos\citep[Pp.~144-145]{john2002experiments}.
 
-Para generar las coordenadas de los vértices, los centroides de los filos, caras (bi-, tridimensionales, etc.) y el centroide general de la región experimental con restricciones con la forma (\ref{eq:john460}), \cite{Piepel1988a} publicó los algoritmos \textit{CONAEV} Y \textit{CONVRT}. Este último está disponible dentro de algunos paquetes estadísticos y través de la librería ``mixexp'' de \textit{R} \citep{Lawson2012}. Nuevamente, la condición para poder encontrar estas coordenadas es que la región experimental sea consistente.\\
+La presencia de restricciones multicomponente como en la Ecuación~\ref{eq:john456} y la Figura~\ref{fig:ej-restricciones} también pueden modificar la forma y el tamaño de la región experimental definida únicamente por límites superiores e inferiores sobre las proporciones $x_i$ de los componentes \citep[Pp.~180]{john2002experiments}. Este tipo de mezclas se pueden modelar con diseños distintos a los propuestos por \cite{Scheffe1958, Scheffe1963} llamados diseños para mezclas restringidas o diseños de \textit{Vértices-Extremos} \citep[Pp.~279]{rasch2011optimal}.
+
+Para generar las coordenadas de los vértices, los centroides de los filos, caras (bi-, tridimensionales, etc.) y el centroide general de la región experimental con restricciones con la forma (\ref{eq:john460}), \cite{Piepel1988a} publicó los algoritmos \textit{CONAEV} Y \textit{CONVRT}. Este último está disponible dentro de algunos paquetes estadísticos a través de la librería ``mixexp'' de \emph{R} \citep{Lawson2012}. Nuevamente, la condición para poder encontrar estas coordenadas es que la región experimental sea consistente. En la Figura~\ref{fig:ej-restricciones} se muestra un diseño de vértices extremos con tres componentes, todos ellos con límites superior e inferior:
+\begin{figure}
+\begin{center}
+\label{fig:ej-restricciones}
+\caption{Diseño de vértices extremos dentro de un espacio restringido. $q=3$ componentes, $0.2\leq x_1\leq 0.8$, $0.1\leq x_2\leq 0.4$, $0.1\leq x_3\leq 0.5$.}
+<<ej-restricciones, fig=TRUE, echo=FALSE, eps=TRUE, out.width='0.50\\textwidth', fig.align='center'>>=
+print(Xvert(3,x1=c(.2,.8),x2=c(.1,.4),x3=c(.1,.5), ndm=1))
+@
+\end{center}
+\end{figure}
+
+Si bien para estimar los parámetros $\beta_i$ del modelo de regresión, se necesita analizar como mínimo tantos puntos dentro del simplejo como parámetros en el modelo, en un diseño de vértices extremos es posible que el número de coordenadas (mezclas), correspondientes a los vértices y los centroides de los filos, bidimensionales, tridimensionales, etc., de la región experimental, sea mayor que el número de parámetros en el modelo. Por ejemplo, para ajustar un modelo como el de la Ecuación~\ref{eq:john71} para la mezcla de $q=3$ componentes con límites inferior y superior en los tres componentes, se necesitaría únicamente $2^q-1$ coordenadas. Sin embargo, los límites de los componentes de la mezcla representada en la Figura~\ref{fig:ej-restricciones} generan 11 coordenadas que corresponden a mezclas candidatas a ser incluidas durante la experimentación. Por este motivo es necesario obtener las coordenadas de todas la mezclas candidatas y utilizar algun critero de optimización del diseño, a fin de seleccionar únicamente las coordenadas que optimizan el diseño de acuerdo con el criterio utilizado.
 
 \section{Mezclas de mezclas.}
 
-\subsection{Múltiples celosías para clasificaciones de componentes \textit{Mayores} y \textit{Menores}.}
+\subsection{Múltiples simplejos para clasificaciones de componentes \textit{Mayores} y \textit{Menores}.}
 
 Algunos experimentos con mezclas involucran componentes categóricos; estas categorías se clasifican como componentes \textit{mayores} y cada categoría consisten en algún número de componentes conocidos como componentes \textit{menores}. En lo sucesivo, se utilizarán los términos \textit{M}-componentes para referir a los componentes mayores y \textit{m}-componentes para los componentes menores.\\
 

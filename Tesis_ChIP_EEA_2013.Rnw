@@ -1,4 +1,4 @@
-\documentclass[10pt,spanish,letterpaper,oneside]{report}
+\documentclass[11pt,spanish,letterpaper,oneside]{report}
 \usepackage[round,authoryear]{natbib}
 \usepackage[spanish]{babel}
 \usepackage{UNAMThesis}
@@ -8,13 +8,14 @@
 \decimalpoint
 \usepackage[utf8]{inputenc}
 \usepackage{textcomp}
+\usepackage{crop}
 %esto es para obtener PDFs de buena calidad
 \usepackage[T1]{fontenc}
 %\usepackage{ae,aecompl}
 \usepackage{pslatex}
 %%
-\logounam{Escudo-UNAM}
-\logoinstitute{Escudo-IIMAS}
+\logounam{Figuras/Escudo-UNAM}
+\logoinstitute{Figuras/Escudo-IIMAS}
 \pagenumbering{roman}
 \flushbottom
 
@@ -32,8 +33,13 @@
 \degreeyear{2013}
 
 \maketitle
-<<opciones>>=
-opts_chunk$set(concordance=TRUE, echo=FALSE, results='asis', dev=c('postscript','pdf'), fig.path='Figuras/')
+<<librerias, include=FALSE>>=
+library("knitr")
+library("mixexp")
+library("xtable")
+@
+<<opciones, include=FALSE>>=
+opts_chunk$set(concordance=TRUE, echo=FALSE, results='asis', dev=c('postscript','pdf'), fig.path='Figuras/', eval=TRUE)
 @
 \begin{dedication}
 ``Creer que nuestras acciones tienen un efecto limitado\\
@@ -68,6 +74,8 @@ en personas que jamás imaginamos.'' \\
 
 \part{Introducción}
 <<introduccion, child='Introduccion/introduccion.Rnw'>>=
+@
+<<definicion, child='Introduccion/definicionmezcla.Rnw'>>=
 @
 \part{Marco teórico}
 <<marco, child='Marco/marco_EEA.Rnw'>>=

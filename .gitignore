@@ -9,3 +9,7 @@
 *.blg
 *.toc
 *~
+*.ps
+*.R
+.Rproj.user
+*.Rhistory
