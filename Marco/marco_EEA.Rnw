@@ -234,7 +234,7 @@ Para los componentes de la mezcla, asumamos que cada $0 \leq x_i \leq 1$ por lo 
 La región de interés combinada para los componentes de la mezcla y las variables de proceso es de dimensionalidad $q-1+n$.
 
 Establecer configuraciones de diseño en las variables de proceso y los componentes de la mezcla involucra establecer un diseño de mezcla en cada punto de la configuración de las varibales de proceso o, de modo similar, ubicar un arreglo factorial en cada punto de composición de los componentes de la mezcla.
-Por ejemplo, supongamos que tenemos un diseño \textit{Simplejo-centroide} \lbrace 3,2\rbrace para ajustar el modelo cúbico especial en los componentes de la mezcla:
+Por ejemplo, supongamos que tenemos un diseño \textit{Simplejo-centroide} $\lbrace 3,2 \rbrace$ para ajustar el modelo cúbico especial en los componentes de la mezcla:
 \begin{equation}
 \eta_{ce}=\beta_1x_1+\beta_2x_2+\beta_3x_3+\beta_{12}x_1x_2+\beta_{13}x_1x_3+\beta_{23}x_2x_3
 +\beta_{123}x_1x_2x_3
