@@ -1,13 +1,13 @@
 \chapter{Planteamiento del problema}
 
-Para la formulación de mermeladas, jaleas y productos similares basados en geles de polisacáridos polianiónicos, se propone estudiar una mezcla base de componentes en proporciones y características fisicoquímicas establecidas a fin de modelar la(s) resuesta(s) de interés y poder diseñar productos con características específicas. Usa vez modelada la mezcla base se le añadirán diversos productos saborizantes\footnote{Los agentes saborizantes que se pueden utilizar son: fruta, saborizantes naturales o artificiales o una mezcla de estos. Sin embargo, el estudio de estos componentes está fuera del alcance del presente estudio.}, los cuales, por su composición y niveles de aplicación, se espera que no influyan sobre la respuesta.\\
-
+Para la formulación de mermeladas, jaleas y productos similares basados en geles de polisacáridos polianiónicos, se propone estudiar una mezcla base de componentes en proporciones y características fisicoquímicas establecidas a fin de modelar la(s) resuesta(s) de interés y poder diseñar productos con características específicas.
+Usa vez modelada la mezcla base se le añadirán diversos productos saborizantes\footnote{Los agentes saborizantes que se pueden utilizar son: fruta, saborizantes naturales o artificiales o una mezcla de estos.
+Sin embargo, el estudio de estos componentes está fuera del alcance del presente estudio.}, los cuales, por su composición y niveles de aplicación, se espera que no influyan sobre la respuesta.
 \section{Componentes de la mezcla base}
-
-En este tipo de productos es posible utilizar una mezcla de polisacáridos como mucílagos, alginatos, carrageninas, etc., a fin de obtener nuevas propiedades mecanicas, así como para aprovechar un posible sinergismo entre estos. El presente estudio se limita a estudiar una mezcla de pectinas de alto y bajo metoxilo.\\
+En este tipo de productos es posible utilizar una mezcla de polisacáridos como mucílagos, alginatos, carrageninas, etc., a fin de obtener nuevas propiedades mecanicas, así como para aprovechar un posible sinergismo entre estos.
+El presente estudio se limita a estudiar una mezcla de pectinas de alto y bajo metoxilo.
 
 El problema planteado originalmente por \cite{Ponce2007} consiste en modelar un gel de pectina compuesto sólo por tres componentes base (\textit{M}-componentes) compuestos por submezclas de dos subcomponentes (\textit{m}-componentes), los cuales son:
-
 \begin{enumerate}
 \item Sólidos solubles
 	\begin{enumerate}
@@ -42,10 +42,8 @@ y dos variables fisicoquímicas:
 		\end{enumerate}
 	\end{enumerate}
 \end{enumerate}
-
 \subsection{Restricciones lineales para los \textit{M}-componentes}
-
-De acuerdo con su función, cada \textit{M}-componente tiene un límite inferior y superior de aplicación. Estos se muestran dentro de la tabla~\ref{tab:restr}.\\
+De acuerdo con su función, cada \textit{M}-componente tiene un límite inferior y superior de aplicación. Estos se muestran dentro de la Tabla~\ref{tab:restr}.
 \begin{table}[!hb]
 \begin{center}
 \caption{Límites superiores e inferiores para los \textit{M}-componentes.}
@@ -61,25 +59,27 @@ Goma (\% p/p) & 0.05 & 1.0 \\
 \end{tabular} 
 \end{center}
 \end{table}
-
-\subsection{Restricciones lineales para los \textit{m}-componentes}
-
+\subsection{Restricciones lineales para los \textit{m}-componentes.}
 Ningun \textit{m}-componente está sujeto a restricciónes lineales.
+\section{Varables de proceso.}
+Se sabe que tanto el pH como la fuerza iónica (\textit{I}) tienen efectos significativos sobre la respuesta mecánica \citep{Glicksman1969}, pero se desconoce si existe una interacción entre estas dos variables.
+Dado que la pectina es un polisacárido polianiónico con un $pK_a \approx 3.4$ \citep{harris1990food}, se espera que haya también una interacción entre la pectina, el pH y la fuerza iónica.
 
-\section{Varables de proceso}
+El pH se puede ajustar en un nivel específico utilizando una solución amortiguadora compuesta por uno o varios ácidos con sus bases conjugadas dentro de un amplio intervalo de concentraciones.
+Para fines prácticos, sólo se utilizará ácido cítrico/citrato en concentración fija ajustando el pH en dos niveles, uno por arriba y otro por debajo del $pK_a$.
 
-Se sabe que tanto el pH como la fuerza iónica (\textit{I}) tienen efectos significativos sobre la respuesta mecánica \citep{Glicksman1969}, pero se desconoce si existe una interacción entre estas dos variables. Dado que la pectina es un polisacárido polianiónico con un $pK_a \approx 3.4$ \citep{harris1990food}, se espera que haya también una interacción entre la pectina, el pH y la fuerza iónica.\\
-
-El pH se puede ajustar en un nivel específico utilizando una solución amortiguadora compuesta por uno o varios ácidos con sus bases conjugadas dentro de un amplio intervalo de concentraciones. Para fines prácticos, sólo se utilizará ácido cítrico/citrato en concentración fija ajustando el pH en dos niveles, uno por arriba y otro por debajo del $pK_a$.\\
-
-Por otro lado, la fuerza iónica se establece mediante la concentración de iones (cationes+aniones). Estos están presentes de manera natural en las frutas naturales que se añaden a la mezcla base, pero también es posible ajustar el contenido final de cada catión a fin de proporcionar la fuerza iónica necesarias para la gelificación de algunas gomas. Las más comunes son cloruros de cationes divalentes y monovalentes, como son:
+Por otro lado, la fuerza iónica se establece mediante la concentración de iones (cationes+aniones).
+Estos están presentes de manera natural en las frutas naturales que se añaden a la mezcla base, pero también es posible ajustar el contenido final de cada catión a fin de proporcionar la fuerza iónica necesarias para la gelificación de algunas gomas.
+Los más comunes son cloruros de cationes divalentes y monovalentes, como son:
 \begin{itemize}
 \item Calcio ($Ca^{2+}$)
 \item Magnesio ($Mg^{2+}$)
 \item Sodio ($Na^{+}$)
 \item Potasio ($K^{+}$)
 \end{itemize}
-Estos iones pueden provenir de una única sal (por ejemplo $NaCl$) o de una mezcla de sales (por ejemplo $NaCl + CaCl^{2+}$). Se sabe también que los cationes divalentes como el $Ca^{2+}$ provocan la gelificación de las pectinas de bajo metoxilo, pero se desconoce si $Mg^{2+}$ tiene el mismo efecto o si la mezcla de estos dos cationes junto con otros cationes monovalentes como $Na^+$ y $K^+$ tienen algun efecto o interactuan modificando la respuesta. En la tabla~\ref{tab:proceso} se muestran los niveles mínimo y máximo para estas variables.
+Estos iones pueden provenir de una única sal (por ejemplo $NaCl$) o de una mezcla de sales (por ejemplo $NaCl + CaCl^{2+}$).
+Se sabe también que los cationes divalentes como el $Ca^{2+}$ provocan la gelificación de las pectinas de bajo metoxilo, pero se desconoce si $Mg^{2+}$ tiene el mismo efecto o si la mezcla de estos dos cationes junto con otros cationes monovalentes como $Na^+$ y $K^+$ tienen algun efecto o interactuan modificando la respuesta.
+En la tabla~\ref{tab:proceso} se muestran los niveles mínimo y máximo para estas variables.
 \begin{table}[!hb]
 \begin{center}
 \caption{Niveles de las variable de proceso en unidades naturales}
@@ -94,13 +94,8 @@ Fuerza iónica (mM) & 10.0 & 100.0 \\
 \end{tabular}
 \end{center}
 \end{table}
-
 \section{Objetivos}
-
 \subsection{Objetivo general}
-
-Modelar la respuesta mecánica (viscosidad dinámica $\eta$ y viscoelasticidad -- módulo de pérdida $G''$ y módulo de almacenamiento $G'$) y la termorresistencia de la mezcla base mediante un diseño experimental para mezclas con límites inferiores y superiores en las proporciones de los componentes y con dos variables de proceso.\\
-
+Modelar la respuesta mecánica (viscosidad dinámica $\eta$ y viscoelasticidad -- módulo de pérdida $G''$ y módulo de almacenamiento $G'$) y la termorresistencia de la mezcla base mediante un diseño experimental para mezclas con límites inferiores y superiores en las proporciones de los componentes y con dos variables de proceso.
 \subsection{Objetivo específico}
-
 Proponer una formulación para producir una gel termorresistente adecuado para la industria panificadora.
