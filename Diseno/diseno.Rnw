@@ -1,5 +1,5 @@
 \chapter{Diseño experimental}
 
-El experimento se divide en dos etapas, la primera etapa, o de exploración, sirve para identificar los componentes de la mezcla base y los factores fisicoquímicos que modifican significativamente las respuestas de interés.\\
+El experimento se divide en dos etapas, la primera etapa, o de exploración, sirve para identificar los componentes de la mezcla base y los factores fisicoquímicos que modifican significativamente las respuestas de interés.
 
-La segundo etapa, o de modelamiento, sirve para obtener un modelo estadístico adecuado que sirva para predecir la respuesta (mecánica y termorresistencia) para valores $\mathbf{x_0}$ específicos.\\
+La segundo etapa, o de modelamiento, sirve para obtener un modelo estadístico adecuado que sirva para predecir la respuesta (mecánica y termorresistencia) para valores $\mathbf{x_0}$ específicos.
