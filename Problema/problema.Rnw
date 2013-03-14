@@ -56,12 +56,10 @@ Ningun \textit{m}-componente está sujeto a restricciones lineales.
 \section{Varables de proceso.}
 La fuerza iónica \textit{I} se define como
 %Cómo se define la fuerza ióncia?
-$$I=\sqrt{\sum\limits_{i=1}^cC_i^2+\sum\limits_{j=1}^aA_j^2}
+$$I=\dfrac{1}{2}\sum\limits_{i=1}^n c_i z_i^2
 \mbox{; }
-i=1,2,3,\ldots,c
-\mbox{; }
-j=1,2,3,\ldots,a$$
-donde $c$ es el número de cationes, $a$ es el número de aniones, $C_i$ y $A_j$ representan la concentración de cada uno de los cationes y aniones, respectivamente, presentes en la mezcla.
+i=1,2,3,\ldots,n$$
+donde $n$ es el número de iones en solución, $c_i$ representan la concentración molar ($mol\cdot dm^{-3}$) de cada ión presente en la mezcla y $z_i$ es la carga del ión.
 Estos iones están presentes de manera natural en las frutas naturales que se añaden a la mezcla base, pero también es posible ajustar el contenido final de cada ión a fin de proporcionar la fuerza iónica necesaria para la gelificación de los polisacáridos.
 Los más comunes son cloruros ($Cl^-$) de cationes divalentes y monovalentes, como son:
 \begin{itemize}
