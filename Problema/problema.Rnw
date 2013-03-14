@@ -117,8 +117,3 @@ Polisacáridos ($\%p/p$) & 0.05 & 1.0 \\
 \end{tabular}
 \end{center}
 \end{table}
-\section{Objetivos.}
-\subsection{Objetivo general.}
-Proponer los modelos de regresión para la respuesta mecánica (viscosidad dinámica $\eta$ y viscoelasticidad -- módulo de pérdida $G''$ y módulo de almacenamiento $G'$--) y para la termorresistencia en función de los componentes de la mezcla y las tres variables de proceso.
-\subsection{Objetivo específico.}
-Establecer un diseño experimental que permita obtener, mediante una serie de experimentos, los modelos estadísticos a fin proponer una o varias formulaciones que produzcan geles con características mecáncias y termorresistencia deseables para una aplicación real en la industria panificadora.
