@@ -1,0 +1,2 @@
+\subsection{Objetivo general.}
+Proponer los modelos de regresión para la respuesta mecánica (viscosidad dinámica $\eta$ y viscoelasticidad -- módulo de pérdida $G''$ y módulo de almacenamiento $G'$--) y para la termorresistencia en función de los componentes de la mezcla y las tres variables de proceso.

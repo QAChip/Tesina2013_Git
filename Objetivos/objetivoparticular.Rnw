@@ -1,0 +1,2 @@
+\subsection{Objetivo específico.}
+Establecer un diseño experimental que permita obtener, mediante una serie de experimentos, los modelos estadísticos a fin proponer una o varias formulaciones que produzcan geles con características mecáncias y termorresistencia deseables para una aplicación real en la industria panificadora.
