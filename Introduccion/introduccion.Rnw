@@ -1,3 +1,15 @@
-En distintas industrias (por ejemplo, alimenticia y farmacéutica), durante el desarrollo de un nuevo producto así como para la reformulación de uno existente, se parte de una mezcla inicial de ingredientes (existente o teórica). Estos ingredientes pueden tener funciones tecnológicas como aditivos, coadyuvantes, etc., para obtener características deseables en el producto final. Es común que dichos ingredientes están sujetos a restricciones en forma de límites máximos de aplicación permitidos, los cuales se establecen ya sea por la normatividad vigente como por los límites de aplicación tecnologica o toxicológica. Además del interés en la respuesta en función de la composición de la mezcla, con frecuencia también es necesario estudiar el efecto de otras variables que no forman parte de la mezcla (como temperatura, presión, tiempo, etc.), conocidas como variables de proceso.
-<<definicion, child='definiconmezcla.Rnw'>>=
-@
+En distintas industrias (por ejemplo, alimenticia y farmacéutica), durante el desarrollo de un nuevo producto así como para la reformulación de uno existente, se parte de una mezcla inicial (existente o teórica).
+Cada componente de la mezcla puede tener una función tecnológico como los aditivos, coadyuvantes, etc., para obtener características deseables en el producto final.
+Es común que dichos componentes están sujetos a restricciones en forma de límites de aplicación permitidos, los cuales se establecen ya sea por la normatividad vigente como por la aplicación tecnologica o toxicológica.
+Además del interés en la respuesta en función de la composición de la mezcla, con frecuencia también es necesario estudiar el efecto de otras variables que no forman parte de la mezcla (como temperatura, presión, tiempo, etc.), conocidas como variables de proceso.
+
+Debido que este tipo de experimentos son un tipo particular de experimentos factoriales, es claro que conforme incrementa el número de componentes y de variables de proceso el número de experimentos también se incrementa rápidamente.
+Por este motivo es necesario utilizar un diseño experimental adecuado que permita obtener modelos estadísticos de la(s) respuesta(s) de interés de un modo eficiente.
+
+El presente trabajo consiste en proponer modelos estadísticos de regresión para modelar las tres respuestas de interés:
+\begin{enumerate}
+\item Termorresistencia
+\item Viscoelasticidad
+\item Viscosidad dinámica de la mezcla
+\end{enumerate}
+así como la metodología de experimentación necesaria para obtener dichos modelos.
