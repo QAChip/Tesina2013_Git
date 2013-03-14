@@ -73,9 +73,9 @@ en personas que jamás imaginamos.'' \\
 \pagenumbering{arabic}
 
 \part{Introducción}
-<<introduccion, child='Introduccion/introduccion.Rnw'>>=
-@
 <<definicion, child='Introduccion/definicionmezcla.Rnw'>>=
+@
+<<introduccion, child='Introduccion/introduccion.Rnw'>>=
 @
 \part{Marco teórico}
 <<marco, child='Marco/marco_EEA.Rnw'>>=
