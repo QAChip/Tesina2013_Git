@@ -1,46 +1,38 @@
 \chapter{Planteamiento del problema}
 Para la formulación de mermeladas, jaleas y productos similares basados en geles de polisacáridos polianiónicos, se propone estudiar una mezcla base de componentes en proporciones y condiciones fisicoquímicas establecidas a fin de modelar la(s) respuesta(s) de interés y poder diseñar productos con características específicas.
-Una vez modelada la mezcla base se le añadirán diversos productos saborizantes\footnote{Los agentes saborizantes que se podrían utilizar son: fruta, saborizantes naturales o artificiales o una mezcla de estos;
+Una vez modelada la mezcla base es posible añadir diversos productos saborizantes\footnote{Los agentes saborizantes que se podrían utilizar son: fruta, saborizantes naturales o artificiales o una mezcla de estos;
 sin embargo, el estudio de estos componentes está fuera del alcance del presente estudio.}, los cuales, por su composición y niveles de aplicación, se espera que no influyan sobre la respuesta.
 \section{Componentes de la mezcla base.}
-En este tipo de productos es posible utilizar una mezcla de polisacáridos\footnote{Cadenas (ramificadas o lineales) de azúcares de distinto tipo (por ejemplo: glucosa, fructosa, galactosa, etc.) unidas por enlaces covalentes y que pueden contener grupos funcionales con carga positiva (catiónicos), negativa (aniónicos) o neutros.} como son: mucílagos, alginatos, carrageninas, etc., a fin de obtener nuevas propiedades viscoelásticas, así como para aprovechar un posible sinergismo\footnote{Sinergiso: la respuesta que se obtiene por la combinación de dos o más componentes es mayor que la suma ponderada de cada uno de los componentes.} o antagonismo \footnote{Antagonismo: la respuesta que se obtiene por la combinación de dos o más componentes es menor que la suma ponderada de cada uno de los componentes.} entre estos.
+En este tipo de productos es posible utilizar una mezcla de polisacáridos\footnote{Cadenas (ramificadas o lineales) de azúcares de distinto tipo (por ejemplo: glucosa, fructosa, galactosa, etc.) unidas por enlaces covalentes y que pueden contener grupos funcionales con carga positiva (catiónicos), negativa (aniónicos) o neutros.} como son: mucílagos, alginatos, carrageninas, etc., a fin de obtener nuevas propiedades viscoelásticas, así como para aprovechar un posible sinergismo\footnote{Sinergismo: la respuesta que se obtiene por la combinación de dos o más componentes es mayor que la suma ponderada de cada uno de los componentes.} o antagonismo \footnote{Antagonismo: la respuesta que se obtiene por la combinación de dos o más componentes es menor que la suma ponderada de cada uno de los componentes.} entre estos.
 El presente estudio se limita a estudiar una mezcla de pectinas de alto y bajo metoxilo en combinación con otros componentes necesarios para producir geles.
 
-El problema planteado originalmente por \cite{Ponce2007} consiste en modelar un gel de pectina compuesto sólo por tres clases de componentes (\textit{M}-componentes) que a su vez son submezclas de componentes del mismo tipo (\textit{m}-componentes), los cuales son:
-\begin{enumerate}
-\item Sólidos solubles
-	\begin{enumerate}
-	\item Sacarosa
-	\item Glucosa
-	\end{enumerate}
-\item Polisacáridos gelificantes
-	\begin{enumerate}
-	\item Pectina de alto metoxilo
-	\item Pectina de bajo metoxilo
-	\end{enumerate}
-\item Agua
-\end{enumerate}
-y dos variables fisicoquímicas:
-\begin{enumerate}
-\item pH
-	\begin{enumerate}
-	\item Ácido cítrico
-	\item Citrato
-	\end{enumerate}
-\item Fuerza iónica
-	\begin{enumerate}
-	\item Sales monovalentes
-		\begin{enumerate}
-		\item $NaCl$
-		\item $KCl$
-		\end{enumerate}
-	\item Sales divalentes
-		\begin{enumerate}
-		\item $CaCl_2$
-		\item $MgCl_2$
-		\end{enumerate}
-	\end{enumerate}
-\end{enumerate}
+El problema planteado originalmente por \cite{Ponce2007} consiste en modelar un gel de pectina compuesto sólo por tres clases de componentes (\textit{M}-componentes) que a su vez son submezclas de componentes del mismo tipo (\textit{m}-componentes), los cuales se muestran en el Cuadro~\ref{tab:factores}:
+\begin{table}[h]
+\begin{center}
+\caption{Componentes de la mezcla y variables de proceso}
+\label{tab:factores}
+\begin{tabular}{l|l}
+\textbf{Componentes} & \textbf{Variables de proceso}\\
+\hline
+\emph{Sólidos solubles} & \emph{pH}\\
+\hline
+Sacarosa & Ácido cítrico \\
+Glucosa & Citrato\\
+\hline
+\emph{Polisacáridos} & \emph{Fuerza iónica}\\
+\hline
+Pectina de alto metoxilo & $NaCl$\\
+Pectina de bajo metoxilo & $KCl$\\
+& $CaCl_2$\\
+& $MgCl_2$\\
+\hline
+\emph{Diluyente} & \\
+\hline
+Agua & \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
 \subsection{Restricciones lineales para los \textit{M}-componentes.}
 De acuerdo con su función, cada \textit{M}-componente tiene un límite inferior y superior de aplicación.
 Estos se muestran dentro del Cuadro~\ref{tab:restr}.
@@ -85,7 +77,7 @@ Se sabe que tanto el pH como la fuerza iónica \textit{I} modifican la viscoelas
 Dado que la pectina es un polisacárido polianiónico\footnote{Polisacárido polianiónico: Cadena de azúcares que tiene múltiples grupos funcionales con carga negativas a la largo de la cadena.} con una constante de acidez $pK_a \approx 3.4$ \citep{harris1990food}, se espera que haya también una interacción entre la pectina, el pH y la fuerza iónica.
 
 La concentración de ácido/base para ajustar el pH se puede fijar en un nivel específico utilizando una solución amortiguadora (búfer) compuesta por uno o varios ácidos y sus bases conjugadas dentro de un amplio intervalo de concentraciones.
-Para fines prácticos, en este estudio sólo es de interés el búfer compuesto de ácido cítrico/citrato de sodio en una concentración fija y se ajustará el pH en máximo tres nivele:
+Para fines prácticos, en este estudio sólo es de interés el búfer compuesto de ácido cítrico/citrato de sodio en una concentración fija y se ajustará el pH en máximo tres niveles:
 $pH>pK_a$, $pH<pK_a$ y $pH=pK_a$, en puntos equidistantes.
 
 Debido a que la proporción de polisacáridos es demasiado pequeña ($>1\%$), se propone incluir este \textit{M}-componente en el modelo como una variable de proceso, sometido a algunas restricciones:
@@ -101,7 +93,7 @@ Las sales que proporcionan la fuerza iónica $I$ están sometidos a las mismas r
 \item La proporción de sales dentro de la mezcla total es constante para cada nivel establecido.
 \end{enumerate}
 
-En el Cuadro~\ref{tab:proceso} se muestran los niveles mínimo y máximo para estas variables.
+En el Cuadro~\ref{tab:proceso} se muestra los niveles mínimo y máximo para estas variables.
 \begin{table}[!h]
 \begin{center}
 \caption{Niveles de las variables de proceso en unidades naturales}
