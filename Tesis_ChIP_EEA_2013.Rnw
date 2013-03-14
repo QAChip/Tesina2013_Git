@@ -83,6 +83,11 @@ en personas que jamás imaginamos.'' \\
 \part{Planteamiento del problema}
 <<problema, child='Problema/problema.Rnw'>>=
 @
+\section{Objetivos.}
+<<objgeneral, child='Objetivos/objetivogeneral.Rnw'>>=
+@
+<<objparticular, child='Objetivos/objetivoparticular.Rnw'>>=
+@
 \part{Diseño experimental}
 <<diseno, child='Diseno/diseno.Rnw'>>=
 @
