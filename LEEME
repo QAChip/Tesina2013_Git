@@ -1,0 +1,24 @@
+DESCRIPCIÓN:
+Este trabajo titulado:
+`Diseño experimental para una mezcla de q componentes y n variables de proceso para investigar las propiedades reológicas de geles de pectina'
+corresponde a la elaboración de la Tesina por Christian I. Ponce (autor) para obtener el grado de Especialista en estadística aplicada en el Instituto de investigación en matemáticas aplicadas y en sistemas de la Universidad Nacional Autónoma de México.
+
+El autor utiliza el repositorio (https://github.com/QAChip/Tesina2013_Git) únicamente como respaldo y para gestionar correcciones solicitadas por los asesores académicos.
+
+SOFTWARE NECESARIO:
+-Compilación:
+Compilador `LaTeX'.
+Paquete `glossaries', para crear los glosarios.
+Paquete `UNAMThesis', para dar el formato de la tesis.
+
+-Gráficos y diseños experimentales:
+Paquete estadístico `R'.
+Librería `Knitr'.
+Librería `Xtable'.
+
+Todos los paquetes de LaTeX necesarios se encuentran disponibles en CTAN (www.ctan.org).
+Todas las librerías de R necesarias se encuentran disponibles en CRAN (cran.r-project.org).
+
+LICENCIA:
+This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License.
+To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/3.0/.
