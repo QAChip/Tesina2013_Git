@@ -1,4 +1,4 @@
-\chapter{Planteamiento del problema}
+%\chapter{Planteamiento del problema}%
 Para la formulación de mermeladas, jaleas y productos similares basados en geles de polisacáridos polianiónicos, se propone estudiar una mezcla base de componentes en proporciones y condiciones fisicoquímicas establecidas a fin de modelar la(s) respuesta(s) de interés y poder diseñar productos con características específicas.
 Una vez modelada la mezcla base es posible añadir diversos productos saborizantes\footnote{Los agentes saborizantes que se podrían utilizar son: fruta, saborizantes naturales o artificiales o una mezcla de estos;
 sin embargo, el estudio de estos componentes está fuera del alcance del presente estudio.}, los cuales, por su composición y niveles de aplicación, se espera que no influyan sobre la respuesta.
@@ -6,7 +6,7 @@ sin embargo, el estudio de estos componentes está fuera del alcance del present
 En este tipo de productos es posible utilizar una mezcla de polisacáridos\footnote{Cadenas (ramificadas o lineales) de azúcares de distinto tipo (por ejemplo: glucosa, fructosa, galactosa, etc.) unidas por enlaces covalentes y que pueden contener grupos funcionales con carga positiva (catiónicos), negativa (aniónicos) o neutros.} como son: mucílagos, alginatos, carrageninas, etc., a fin de obtener nuevas propiedades viscoelásticas, así como para aprovechar un posible sinergismo\footnote{Sinergismo: la respuesta que se obtiene por la combinación de dos o más componentes es mayor que la suma ponderada de cada uno de los componentes.} o antagonismo \footnote{Antagonismo: la respuesta que se obtiene por la combinación de dos o más componentes es menor que la suma ponderada de cada uno de los componentes.} entre estos.
 El presente estudio se limita a estudiar una mezcla de pectinas de alto y bajo metoxilo en combinación con otros componentes necesarios para producir geles.
 
-El problema planteado originalmente por \cite{Ponce2007} consiste en modelar un gel de pectina compuesto sólo por tres clases de componentes (\textit{M}-componentes) que a su vez son submezclas de componentes del mismo tipo (\textit{m}-componentes), los cuales se muestran en el Cuadro~\ref{tab:factores}:
+El problema planteado originalmente por \cite{Ponce2007} consiste en modelar un gel de pectina compuesto sólo por tres clases de componentes (\textit{M}-componentes) que a su vez son submezclas de componentes del mismo tipo (\textit{m}-componentes), los cuales se muestran en el Cuadro~\ref{tab:factores}. 
 \begin{table}[h]
 \begin{center}
 \caption{Componentes de la mezcla y variables de proceso}
@@ -33,6 +33,8 @@ Agua & \\
 \end{tabular}
 \end{center}
 \end{table}
+Estas variables de proceso (pH y fuerza iónica), aunque forman parte de la mezcla, se encuentran en proporciones tan pequeñas que se estudiarán como factores dentro de un diseño factorial.
+Una variable de proceso es un factor que no forman parte de la mezcla de componentes, por ejemplo, temperatura, presión, velocidad de agitación, etc.
 \subsection{Restricciones lineales para los \textit{M}-componentes.}
 De acuerdo con su función, cada \textit{M}-componente tiene un límite inferior y superior de aplicación.
 Estos se muestran dentro del Cuadro~\ref{tab:restr}.
@@ -78,7 +80,7 @@ La concentración de ácido/base para ajustar el pH se puede fijar en un nivel e
 Para fines prácticos, en este estudio sólo es de interés el búfer compuesto de ácido cítrico/citrato de sodio en una concentración fija y se ajustará el pH en máximo tres niveles:
 $pH>pK_a$, $pH<pK_a$ y $pH=pK_a$, en puntos equidistantes.
 
-Debido a que la proporción de polisacáridos es demasiado pequeña ($>1\%$), se propone incluir este \textit{M}-componente en el modelo como una variable de proceso, sometido a algunas restricciones:
+Debido a que la proporción de polisacáridos es demasiado pequeña ($<1\%$), se propone incluir este \textit{M}-componente en el modelo como una variable de proceso, sometido a algunas restricciones:
 \begin{enumerate}
 \item La proporción de cada polisacárido dentro de la mezcla de polisacáridos puede variar sin restricciones.
 \item Se fijará máximo 3 niveles para la proporción total de polisacáridos dentro de los límites establecidos para este factor.
